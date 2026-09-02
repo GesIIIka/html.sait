@@ -199,7 +199,7 @@
             <div class="card">
                 <div class="card-title">Біологія</div>
                 <a href="https://us05web.zoom.us/j/3305145414?pwd=RWQ5TmpEMjRaSmNxZ0xSNjZlNStEUT09" target="_blank" class="action-button">Увійти в конференцію</a>
-                <a href="https://classroom.google.com/c/ODc1OTY4NjEzNDkw?cjc=qao2sxd6" target="_blank" class="action-button">Classroom</a>
+                <a href="https://classroom.google.com/c/ODc1OTY8NjEzNDkw?cjc=qao2sxd6" target="_blank" class="action-button">Classroom</a>
             </div>
 
             <div class="card">
@@ -245,7 +245,6 @@
         </div>
 
         <div id="tab-schedule" class="tab-content">
-            
             <div class="schedule-card">
                 <div class="schedule-time">1 пара • 08:30 - 09:50</div>
                 <div class="schedule-subject">------</div>
@@ -269,7 +268,6 @@
                 <div class="schedule-subject">Биология</div>
                 <div class="schedule-info">Дистант</div>
             </div>
-
         </div>
 
         <div id="tab-hw-detail" class="tab-content">
@@ -309,4 +307,34 @@
             const buttons = document.querySelectorAll('.nav-button');
             buttons.forEach(b => b.classList.remove('active'));
 
-            document.getElementById('tab-'
+            document.getElementById('tab-' + tabName).classList.add('active');
+
+            const tabIndices = { 'lessons': 0, 'homework': 1, 'info': 2, 'schedule': 3 };
+            if (tabIndices[tabName] !== undefined) {
+                buttons[tabIndices[tabName]].classList.add('active');
+            }
+
+            document.getElementById('main-nav').style.display = 'flex';
+        }
+
+        function openHW(subjectKey) {
+            const data = hwData[subjectKey];
+            if (data) {
+                document.getElementById('hw-title').innerText = data.title;
+                document.getElementById('hw-content').innerText = data.text;
+
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById('tab-hw-detail').classList.add('active');
+                document.getElementById('main-nav').style.display = 'none';
+            }
+        }
+
+        function closeHW() {
+            document.getElementById('tab-hw-detail').classList.remove('active');
+            document.getElementById('tab-homework').classList.add('active');
+            document.getElementById('main-nav').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
