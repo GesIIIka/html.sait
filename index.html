@@ -78,6 +78,7 @@
             letter-spacing: 0.2px;
         }
 
+        /* Стилі для посилання-кнопки */
         .action-button {
             background-color: #4a4a4a;
             color: #ffffff;
@@ -86,7 +87,22 @@
             padding: 10px 24px;
             font-size: 14px;
             font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .action-button:hover {
+            background-color: #5a5a5a;
+        }
+
+        /* Стиль для неерактивних кнопок */
+        .action-button.disabled {
             cursor: default;
+            background-color: #3a3a3a;
+            color: #888888;
         }
     </style>
 </head>
@@ -95,34 +111,32 @@
     <div class="container">
         <div class="nav-scroll">
             <div class="nav-button active">Уроки</div>
-            <div class="nav-button">Пам'ятка чергового</div>
-            <div class="nav-button">Шпори</div>
-            <div class="nav-button">Коментарі</div>
+            <div class="nav-button">Дзшки</div>
         </div>
 
         <div class="card">
-            <div class="card-title">Фізика</div>
-            <button class="action-button">Увійти в конференцію</button>
+            <div class="card-title">Хімія</div>
+            <a href="https://us05web.zoom.us/j/3305145414?pwd=RWQ5TmpEMjRaSmNxZ0xSNjZlNStEUT09" target="_blank" class="action-button">Увійти в конференцію</a>
         </div>
 
         <div class="card">
-            <div class="card-title">Математика</div>
-            <button class="action-button">Увійти в конференцію</button>
+            <div class="card-title">Біологія</div>
+            <a href="https://us05web.zoom.us/j/3305145414?pwd=RWQ5TmpEMjRaSmNxZ0xSNjZlNStEUT09" target="_blank" class="action-button">Увійти в конференцію</a>
         </div>
 
         <div class="card">
-            <div class="card-title">Українська мова та література</div>
-            <button class="action-button">Увійти в конференцію</button>
+            <div class="card-title">географія</div>
+            <span class="action-button disabled">Увійти в конференцію</span>
         </div>
 
         <div class="card">
             <div class="card-title">Інформатика</div>
-            <button class="action-button">Увійти в конференцію</button>
+            <span class="action-button disabled">Увійти в конференцію</span>
         </div>
 
         <div class="card">
-            <div class="card-title">ОМЗ (жіноча група)</div>
-            <button class="action-button">Увійти в конференцію</button>
+            <div class="card-title">Потом придумаю</div>
+            <span class="action-button disabled">Увійти в конференцію</span>
         </div>
     </div>
 
