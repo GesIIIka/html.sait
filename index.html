@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уроки</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 20px 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Верхнє меню (таби) */
+        .nav-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none; /* Приховує скроллбар в Firefox */
+        }
+
+        .nav-scroll::-webkit-scrollbar {
+            display: none; /* Приховує скроллбар в Chrome/Safari */
+        }
+
+        .nav-button {
+            background-color: #242424;
+            color: #ffffff;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        .nav-button.active {
+            background-color: #383838;
+            border-color: #555;
+        }
+
+        /* Картки предметів */
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 16px;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.2px;
+        }
+
+        .action-button {
+            background-color: #4a4a4a;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-scroll">
+            <div class="nav-button active">Уроки</div>
+            <div class="nav-button">Пам'ятка чергового</div>
+            <div class="nav-button">Шпори</div>
+            <div class="nav-button">Коментарі</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Фізика</div>
+            <button class="action-button">Увійти в конференцію</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Математика</div>
+            <button class="action-button">Увійти в конференцію</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Українська мова та література</div>
+            <button class="action-button">Увійти в конференцію</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Інформатика</div>
+            <button class="action-button">Увійти в конференцію</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">ОМЗ (жіноча група)</div>
+            <button class="action-button">Увійти в конференцію</button>
+        </div>
+    </div>
+
+</body>
+</html>
