@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Уроки та ДЗ</title>
+    <title>Уроки, ДЗ та Розклад</title>
     <style>
         * {
             box-sizing: border-box;
@@ -58,7 +58,7 @@
             border-color: #555;
         }
 
-        /* Картки */
+        /* Загальні картки */
         .card {
             background-color: #1a1a1a;
             border: 1px solid #333333;
@@ -103,7 +103,7 @@
             color: #888888;
         }
 
-        /* Вкладки та сторінка ДЗ */
+        /* Перемикання вкладок */
         .tab-content {
             display: none;
             flex-direction: column;
@@ -114,15 +114,53 @@
             display: flex;
         }
 
-        /* Стилі для детальної сторінки ДЗ */
-        .hw-detail-card {
+        /* Стилі для ДЗ та Інфи */
+        .info-card {
             background-color: #1a1a1a;
             border: 1px solid #333333;
             border-radius: 16px;
-            padding: 24px 20px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 12px;
+        }
+
+        .info-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ddd;
+            white-space: pre-wrap;
+        }
+
+        /* Стилі для блоків Розкладу */
+        .schedule-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .schedule-time {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-subject {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .schedule-info {
+            font-size: 14px;
+            color: #aaa;
         }
 
         .back-button {
@@ -135,24 +173,21 @@
             font-size: 13px;
             cursor: pointer;
         }
-
-        .hw-text {
-            font-size: 15px;
-            line-height: 1.5;
-            color: #ddd;
-            white-space: pre-wrap; /* Зберігає переноси рядків */
-        }
     </style>
 </head>
 <body>
 
     <div class="container">
         
+        <!-- Верхня панель навігації -->
         <div id="main-nav" class="nav-scroll">
             <div class="nav-button active" onclick="switchTab('lessons')">Уроки</div>
             <div class="nav-button" onclick="switchTab('homework')">Дзшки</div>
+            <div class="nav-button" onclick="switchTab('info')">Інфа</div>
+            <div class="nav-button" onclick="switchTab('schedule')">Розклад</div>
         </div>
 
+        <!-- ВКЛАДКА 1: УРОКИ -->
         <div id="tab-lessons" class="tab-content active">
             <div class="card">
                 <div class="card-title">Хімія</div>
@@ -175,6 +210,7 @@
             </div>
         </div>
 
+        <!-- ВКЛАДКА 2: ДЗШКИ (СПИСОК) -->
         <div id="tab-homework" class="tab-content">
             <div class="card">
                 <div class="card-title">Хімія</div>
@@ -197,71 +233,114 @@
             </div>
         </div>
 
+        <!-- ВКЛАДКА 3: ІНФА -->
+        <div id="tab-info" class="tab-content">
+            <div class="info-card">
+                <div class="card-title" style="text-align: left;">Важлива інформація</div>
+                <!-- Текст нижче ви можете змінювати прямо в коді -->
+                <div class="info-text">Тут розміщується будь-яка корисна інформація, оголошення чи замітки для групи.
+
+Ви можете легко редагувати цей текст безпосередньо у HTML-файлі в блоці «tab-info».</div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 4: РОЗКЛАД (4 БЛОКИ/ПАРИ) -->
+        <div id="tab-schedule" class="tab-content">
+            
+            <!-- Пара 1 -->
+            <div class="schedule-card">
+                <div class="schedule-time">1 пара • 08:30 - 09:50</div>
+                <div class="schedule-subject">Математика</div>
+                <div class="schedule-info">Аудиторія 101 / Онлайн</div>
+            </div>
+
+            <!-- Пара 2 -->
+            <div class="schedule-card">
+                <div class="schedule-time">2 пара • 10:05 - 11:25</div>
+                <div class="schedule-subject">Фізика</div>
+                <div class="schedule-info">Аудиторія 204 / Онлайн</div>
+            </div>
+
+            <!-- Пара 3 -->
+            <div class="schedule-card">
+                <div class="schedule-time">3 пара • 11:40 - 13:00</div>
+                <div class="schedule-subject">Інформатика</div>
+                <div class="schedule-info">Кабінет 12 / Онлайн</div>
+            </div>
+
+            <!-- Пара 4 -->
+            <div class="schedule-card">
+                <div class="schedule-time">4 пара • 13:15 - 14:35</div>
+                <div class="schedule-subject">Хімія</div>
+                <div class="schedule-info">Аудиторія 305 / Онлайн</div>
+            </div>
+
+        </div>
+
+        <!-- СТОРІНКА ДЕТАЛЕЙ ДЗ -->
         <div id="tab-hw-detail" class="tab-content">
-            <div class="hw-detail-card">
+            <div class="info-card">
                 <button class="back-button" onclick="closeHW()">← Назад</button>
                 <h2 id="hw-title" class="card-title">Предмет</h2>
-                <div id="hw-content" class="hw-text">Текст завдання...</div>
+                <div id="hw-content" class="info-text">Текст завдання...</div>
             </div>
         </div>
 
     </div>
 
     <script>
-        // ТЕКСТИ ДЗ (ТУТ МОЖНА ЗМІНЮВАТИ ТЕКСТ ДЛЯ КОЖНОГО ПРЕДМЕТА)
         const hwData = {
             chemistry: {
                 title: "Хімія",
-                text: "Нихуя"
+                text: "Прочитати параграф 12, виконати вправи 3 та 4 на сторінці 45."
             },
             biology: {
                 title: "Біологія",
-                text: "Позаходить во все класрумы, телеграм групы, и тд."
+                text: "Підготувати коротку доповідь про будову клітини."
             },
             geography: {
                 title: "Географія",
-                text: "Нихуя"
+                text: "Опрацювати карту на сторінці 18, заповнити контурні карти."
             },
             informatics: {
                 title: "Інформатика",
-                text: "Ну чес не помню поетому, нихуя"
+                text: "Дописати проект на HTML/CSS та завантажити його на GitHub."
             }
         };
 
-        // Перемикання між Уроками та ДЗ
         function switchTab(tabName) {
-            document.getElementById('tab-lessons').classList.remove('active');
-            document.getElementById('tab-homework').classList.remove('active');
-            document.getElementById('tab-hw-detail').classList.remove('active');
-            
-            const buttons = document.querySelectorAll('.nav-button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            // Ховаємо всі контенти
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
 
-            if (tabName === 'lessons') {
-                document.getElementById('tab-lessons').classList.add('active');
-                buttons[0].classList.add('active');
-            } else if (tabName === 'homework') {
-                document.getElementById('tab-homework').classList.add('active');
-                buttons[1].classList.add('active');
+            // Знімаємо підсвітку з усіх кнопок
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            // Показуємо потрібну вкладку
+            document.getElementById('tab-' + tabName).classList.add('active');
+
+            // Підсвічуємо активну кнопку
+            const tabIndices = { 'lessons': 0, 'homework': 1, 'info': 2, 'schedule': 3 };
+            if (tabIndices[tabName] !== undefined) {
+                buttons[tabIndices[tabName]].classList.add('active');
             }
-            
+
             document.getElementById('main-nav').style.display = 'flex';
         }
 
-        // Відкрити конкретне ДЗ
         function openHW(subjectKey) {
             const data = hwData[subjectKey];
             if (data) {
                 document.getElementById('hw-title').innerText = data.title;
                 document.getElementById('hw-content').innerText = data.text;
 
-                document.getElementById('tab-homework').classList.remove('active');
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                 document.getElementById('tab-hw-detail').classList.add('active');
-                document.getElementById('main-nav').style.display = 'none'; // Ховаємо таби на сторінці ДЗ
+                document.getElementById('main-nav').style.display = 'none';
             }
         }
 
-        // Кнопка "Назад" з сторінки ДЗ
         function closeHW() {
             document.getElementById('tab-hw-detail').classList.remove('active');
             document.getElementById('tab-homework').classList.add('active');
