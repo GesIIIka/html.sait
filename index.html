@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Уроки, ДЗ та Розклад</title>
+    <title>Уроки та Інформація</title>
     <style>
         * {
             box-sizing: border-box;
@@ -117,7 +117,7 @@
             display: flex;
         }
 
-        /* Стилі для ДЗ та Інфи */
+        /* Стилі для Інфи */
         .info-card {
             background-color: #1a1a1a;
             border: 1px solid #333333;
@@ -134,48 +134,6 @@
             color: #ddd;
             white-space: pre-wrap;
         }
-
-        /* Стилі для блоків Розкладу */
-        .schedule-card {
-            background-color: #1a1a1a;
-            border: 1px solid #333333;
-            border-radius: 16px;
-            padding: 16px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            position: relative;
-        }
-
-        .schedule-time {
-            font-size: 12px;
-            font-weight: 600;
-            color: #888888;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .schedule-subject {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .schedule-info {
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        .back-button {
-            align-self: flex-start;
-            background-color: #242424;
-            color: #fff;
-            border: 1px solid #444;
-            border-radius: 12px;
-            padding: 6px 14px;
-            font-size: 13px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -184,9 +142,7 @@
         
         <div id="main-nav" class="nav-scroll">
             <div class="nav-button active" onclick="switchTab('lessons')">Уроки</div>
-            <div class="nav-button" onclick="switchTab('homework')">Дзшки</div>
             <div class="nav-button" onclick="switchTab('info')">Інфа</div>
-            <div class="nav-button" onclick="switchTab('schedule')">Розклад</div>
         </div>
 
         <div id="tab-lessons" class="tab-content active">
@@ -223,7 +179,7 @@
             <div class="card">
                 <div class="card-title">Біологія</div>
                 <a href="https://us05web.zoom.us/j/3305145414?pwd=RWQ5TmpEMjRaSmNxZ0xSNjZlNStEUT09" target="_blank" class="action-button">Увійти в конференцію</a>
-                <a href="https://classroom.google.com/c/ODc1OTY8NjEzNDkw?cjc=qao2sxd6" target="_blank" class="action-button">Classroom</a>
+                <a href="https://classroom.google.com/c/ODc1OTY4NjEzNDkw?cjc=qao2sxd6" target="_blank" class="action-button">Classroom</a>
             </div>
 
             <div class="card">
@@ -239,48 +195,6 @@
             </div>
         </div>
 
-        <div id="tab-homework" class="tab-content">
-            <div class="card">
-                <div class="card-title">Хімія</div>
-                <button class="action-button" onclick="openHW('chemistry')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Фізика</div>
-                <button class="action-button" onclick="openHW('physics')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Укр Мова</div>
-                <button class="action-button" onclick="openHW('ukrainian')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Всесвітня Історія</div>
-                <button class="action-button" onclick="openHW('worldhistory')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Англійська</div>
-                <button class="action-button" onclick="openHW('english')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Біологія</div>
-                <button class="action-button" onclick="openHW('biology')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Географія</div>
-                <button class="action-button" onclick="openHW('geography')">Переглянути ДЗ</button>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Інформатика</div>
-                <button class="action-button" onclick="openHW('informatics')">Переглянути ДЗ</button>
-            </div>
-        </div>
-
         <div id="tab-info" class="tab-content">
             <div class="info-card">
                 <div class="card-title" style="text-align: left;">Чет полезное</div>
@@ -288,78 +202,9 @@
             </div>
         </div>
 
-        <div id="tab-schedule" class="tab-content">
-            <div class="schedule-card">
-                <div class="schedule-time">1 пара • 08:30 - 09:50</div>
-                <div class="schedule-subject">Укр Мова</div>
-                <div class="schedule-info">218</div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-time">2 пара • 10:00 - 11:20</div>
-                <div class="schedule-subject">Фізика</div>
-                <div class="schedule-info">313</div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-time">3 пара • 11:50 - 13:10</div>
-                <div class="schedule-subject">Всесвітня Історія</div>
-                <div class="schedule-info">313</div>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-time">4 пара • 13:20- 14:40</div>
-                <div class="schedule-subject">Англійська</div>
-                <div class="schedule-info">219</div>
-            </div>
-        </div>
-
-        <div id="tab-hw-detail" class="tab-content">
-            <div class="info-card">
-                <button class="back-button" onclick="closeHW()">← Назад</button>
-                <h2 id="hw-title" class="card-title">Предмет</h2>
-                <div id="hw-content" class="info-text">Текст завдання...</div>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        const hwData = {
-            chemistry: {
-                title: "Хімія",
-                text: "Все дз в classrome"
-            },
-            biology: {
-                title: "Біологія",
-                text: "Позаходить в класрумы, телеграм групы и тд."
-            },
-            physics: {
-                title: "Физика",
-                text: "Нихуя"
-            },
-            ukrainian: {
-                title: "Украинский",
-                text: "Нихуя"
-            },
-            worldhistory: {
-                title: "Всесвітня Історія",
-                text: "Нихуя"
-            },
-            english: {
-                title: "Англійська",
-                text: "Нихуя"
-            },
-            geography: {
-                title: "Географія",
-                text: "Нихуя"
-            },
-            informatics: {
-                title: "Інформатика",
-                text: "Нихуя"
-            }
-        };
-
         function switchTab(tabName) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(c => c.classList.remove('active'));
@@ -369,29 +214,11 @@
 
             document.getElementById('tab-' + tabName).classList.add('active');
 
-            const tabIndices = { 'lessons': 0, 'homework': 1, 'info': 2, 'schedule': 3 };
+            const tabIndices = { 'lessons': 0, 'info': 1 };
             if (tabIndices[tabName] !== undefined) {
                 buttons[tabIndices[tabName]].classList.add('active');
             }
 
-            document.getElementById('main-nav').style.display = 'flex';
-        }
-
-        function openHW(subjectKey) {
-            const data = hwData[subjectKey];
-            if (data) {
-                document.getElementById('hw-title').innerText = data.title;
-                document.getElementById('hw-content').innerText = data.text;
-
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                document.getElementById('tab-hw-detail').classList.add('active');
-                document.getElementById('main-nav').style.display = 'none';
-            }
-        }
-
-        function closeHW() {
-            document.getElementById('tab-hw-detail').classList.remove('active');
-            document.getElementById('tab-homework').classList.add('active');
             document.getElementById('main-nav').style.display = 'flex';
         }
     </script>
